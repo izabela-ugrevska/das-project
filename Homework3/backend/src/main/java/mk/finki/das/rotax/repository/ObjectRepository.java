@@ -7,11 +7,11 @@ import java.util.Optional;
 
 public interface ObjectRepository extends JpaRepository<Object, Long> {
 
-    Optional<Object> findByNameContaining(String name);
+    Optional<Object> findByNameIgnoreCaseContaining(String name);
 
-    Optional<Object> findByAddressContaining(String city);
+    Optional<Object> findByAddressIgnoreCaseContaining(String city);
 
-    Optional<Object> findByCategoryName(String name);
+    Optional<Object> findByCategoryNameIgnoreCase(String name);
 
     Optional<Object> findBySmokingType(Boolean smokingType);
 
