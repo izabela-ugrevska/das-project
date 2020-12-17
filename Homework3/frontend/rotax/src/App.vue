@@ -5,7 +5,7 @@
       <router-link to="/restaurants">Ресторани</router-link> |
       <router-link to="/cafes">Кафе-барови</router-link> |
       <router-link to="/markets">Маркети</router-link> |
-      <router-link to="/other">Останато</router-link> |
+      <router-link to="/other">Останато</router-link>
     </div>
     <router-view/>
   </div>

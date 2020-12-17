@@ -42,7 +42,7 @@
       </b-container>
     </div>
     <div id="footer">
-      <h5 style="padding-top: 90px"><i>Инклузивноста е право а не привилегија!</i></h5>
+      <h5 style="padding-top: 90px"><i>Инклузивноста е право, а не привилегија!</i></h5>
     </div>
   </div>
 </template>
