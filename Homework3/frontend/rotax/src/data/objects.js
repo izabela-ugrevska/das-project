@@ -1,18 +1,18 @@
 export default [
-{
-  objectId: 309875534,
-  name: 'Ирски паб Св. Патрик',
-  longitude: '21.4355937',
-  latitude: '41.9950681',
-  phone: '+389 23256337',
-  website: 'http://www.irishpub.com.mk/',
-  smokingtype: true,
-  outdoorSeating: true,
-  openingHours: '10:00-24:00  Fr-Sa 10:00-01:00',
-  address: 'Кеј 13 Ноември',
-  cuisine: 'international',
-  category: 'cafe'
-},
+  {
+    objectId: 309875534,
+    name: 'Ирски паб Св. Патрик',
+    longitude: '21.4355937',
+    latitude: '41.9950681',
+    phone: '+389 23256337',
+    website: 'http://www.irishpub.com.mk/',
+    smokingtype: true,
+    outdoorSeating: true,
+    openingHours: '10:00-24:00  Fr-Sa 10:00-01:00',
+    address: 'Кеј 13 Ноември',
+    cuisine: 'international',
+    category: 'cafe'
+  },
   {
     objectId: 309894643,
     name: 'Пелистер',
@@ -28,8 +28,7 @@ export default [
     category: 'restaurant'
   },
   {
-    objectId: 459669395
-    ,
+    objectId: 459669395,
     name: 'Веро 7',
     longitude: '21.4345769',
     latitude: '41.9947502',
@@ -109,6 +108,7 @@ export default [
     outdoorSeating: null,
     openingHours: 'Mo-Su 10:00-22:00',
     address: 'Љубљанска',
-    cuisine: null
+    cuisine: null,
+    category: 'other'
   }
 ]
