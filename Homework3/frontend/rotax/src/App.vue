@@ -1,12 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/restaurants">Restaurants</router-link> |
-      <router-link to="/cafes">Cafes</router-link> |
-      <router-link to="/markets">Markets</router-link> |
-      <router-link to="/other">Other</router-link> |
-      <router-link to="/object">Object</router-link>
+      <router-link to="/">Дома</router-link> |
+      <router-link to="/restaurants">Ресторани</router-link> |
+      <router-link to="/cafes">Кафе-барови</router-link> |
+      <router-link to="/markets">Маркети</router-link> |
+      <router-link to="/other">Останато</router-link> |
     </div>
     <router-view/>
   </div>
@@ -18,18 +17,19 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: darkcyan;
 }
 
 #nav {
-  padding: 30px;
+  padding: 10px;
+  background: lightgray;
 
   a {
     font-weight: bold;
     color: #2c3e50;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: darkcyan;
     }
   }
 }
