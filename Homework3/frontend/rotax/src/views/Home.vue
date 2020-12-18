@@ -2,55 +2,79 @@
   <div class="home">
     <div id="header">
 
-      <img src="../assets/logo.png" style="padding-bottom: 3px; width: 270px; height: 100px;">
+      <img src="../assets/logos/logo.png" style="padding-bottom: 3px; width: 270px; height: 100px;">
       <h5 style="color: darkcyan"><i>Пронајдете места пристапни со инвалидска количка</i></h5>
     </div>
     <div id="container">
       <b-container class="bv-example-row">
         <b-row style="align-content: center">
-            <div class="category">
-              <router-link to="/restaurants">
+          <div class="category">
+            <router-link to="/restaurants">
               <b-col>
                 <h5 style="padding-top: 10px"><i>Ресторани</i></h5>
                 <img src="../assets/Desktop/utilities.png" style="width: 110px; height: 150px; margin-left: -15px; margin-top: -10px">
               </b-col>
-              </router-link>
-            </div>
-            <div class="category">
-              <router-link to="/cafes">
+            </router-link>
+          </div>
+          <div class="category">
+            <router-link to="/cafes">
               <b-col>
                 <h5 style="padding-top: 10px"><i>Кафе-барови</i></h5>
                 <img src="../assets/Desktop/glass.png" style="width: 150px; height: 160px; margin-left: -15px; margin-top: -10px">
               </b-col>
-              </router-link>
-            </div>
-            <div class="category">
-              <router-link to="/markets">
+            </router-link>
+          </div>
+          <div class="category">
+            <router-link to="/markets">
               <b-col>
                 <h5 style="padding-top: 10px"><i>Маркети</i></h5>
                 <img src="../assets/Desktop/basket.png" style="width: 130px; height: 150px; margin-left: -15px; margin-top: -10px">
               </b-col>
-              </router-link>
-            </div>
-            <div class="category" style="margin-right: 0px">
-              <router-link to="/other">
+            </router-link>
+          </div>
+          <div class="category" style="margin-right: 0px">
+            <router-link to="/other">
               <b-col><h5 style="padding-top: 10px"><i>Останато</i></h5>
                 <img src="../assets/Desktop/magnifying-glass.png" style="width: 130px; height: 130px;  margin-top: -10px">
               </b-col>
-              </router-link>
-            </div>
+            </router-link>
+          </div>
         </b-row>
       </b-container>
+    </div>
+    <div id="all_objects">
+      <div class="search-wrapper">
+        <input type="text" v-model="search" placeholder="Search title.."/>
+        <label>Search title:</label>
+      </div>
+      <div class="wrapper">
+        <div class="card" v-for="object in filteredList" :key="object.name">
+          <router-link :to="`/objects/:${object.name}`">{{object.name}}</router-link>
+        </div>
+      </div>
     </div>
     <div id="footer">
       <h5 style="padding-top: 90px"><i>Инклузивноста е право, а не привилегија!</i></h5>
     </div>
   </div>
 </template>
-<script>
-// @ is an alias to /src
+<script>// @ is an alias to /src
+import objects from '@/data/objects'
 export default {
-  name: 'Home'
+  name: 'Home',
+  data () {
+    return {
+      search: '',
+      objList: objects
+    }
+  },
+  computed: {
+    filteredList () {
+      return this.objList.filter(object => {
+        return object.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+    }
+  }
 }
 </script>
 <style>
@@ -62,7 +86,6 @@ export default {
   #footer{
     background: lightgray;
     height: 120px;
-
   }
   #container{
     position: relative;
@@ -84,5 +107,77 @@ export default {
   a:hover{
     text-decoration: none;
     color: darkcyan;
+  }
+  div#all_objects {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+  .search-wrapper {
+    position: relative;
+  label {
+    position: absolute;
+    font-size: 12px;
+    color: rgba(0,0,0,.50);
+    top: 8px;
+    left: 12px;
+    z-index: -1;
+    transition: .15s all ease-in-out;
+  }
+  input {
+    padding: 4px 12px;
+    color: rgba(0,0,0,.70);
+    border: 1px solid rgba(0,0,0,.12);
+    transition: .15s all ease-in-out;
+    background: white;
+  &:focus {
+     outline: none;
+     transform: scale(1.05);
+  & + label  {
+      font-size: 10px;
+      transform: translateY(-24px) translateX(-12px);
+    }
+  }
+  &::-webkit-input-placeholder {
+     font-size: 12px;
+     color: rgba(0,0,0,.50);
+     font-weight: 100;
+   }
+  }
+  }
+
+  .wrapper {
+    display: flex;
+    max-width: 444px;
+    flex-wrap: wrap;
+    padding-top: 12px;
+  }
+
+  .card {
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+    max-width: 124px;
+    margin: 12px;
+    transition: .15s all ease-in-out;
+  &:hover {
+     transform: scale(1.1);
+   }
+  a {
+    text-decoration: none;
+    padding: 12px;
+    color: #03A9F4;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  img {
+    height: 100px;
+  }
+  small {
+    font-size: 10px;
+    padding: 4px;
+  }
+  }
+  }
   }
 </style>
