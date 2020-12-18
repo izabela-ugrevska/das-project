@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div id="header">
-      <img src="../assets/logo.png" style="padding-bottom: 3px; width: 270px; height: 100px;">
+      <img src="../assets/logos/logo.png" style="padding-bottom: 3px; width: 270px; height: 100px;">
       <h5 style="color: darkcyan"><i>Пронајдете места пристапни со инвалидска количка</i></h5>
     </div>
     <div id="container">
