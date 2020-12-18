@@ -7,37 +7,37 @@
     <div id="container">
       <b-container class="bv-example-row">
         <b-row style="align-content: center">
-          <router-link to="/restaurants">
             <div class="category">
+              <router-link to="/restaurants">
               <b-col>
                 <h5 style="padding-top: 10px"><i>Ресторани</i></h5>
-                <img src="../assets/simboli/utilities.png" style="width: 400px; height: 300px; margin-left: -100px; margin-top: -40px">
+                <img src="../assets/Desktop/utilities.png" style="width: 110px; height: 150px; margin-left: -15px; margin-top: -10px">
               </b-col>
+              </router-link>
             </div>
-          </router-link>
-          <router-link to="/cafes">
             <div class="category">
+              <router-link to="/cafes">
               <b-col>
                 <h5 style="padding-top: 10px"><i>Кафе-барови</i></h5>
-                <img src="../assets/simboli/glass.png" style="width: 350px; height: 250px; margin-left: -75px; margin-top: -30px">
+                <img src="../assets/Desktop/glass.png" style="width: 150px; height: 160px; margin-left: -15px; margin-top: -10px">
               </b-col>
+              </router-link>
             </div>
-          </router-link>
-          <router-link to="/markets">
             <div class="category">
+              <router-link to="/markets">
               <b-col>
                 <h5 style="padding-top: 10px"><i>Маркети</i></h5>
-                <img src="../assets/simboli/basket.png" style="width: 300px; height: 200px; margin-left: -75px; margin-top: -40px">
+                <img src="../assets/Desktop/basket.png" style="width: 130px; height: 150px; margin-left: -15px; margin-top: -10px">
               </b-col>
+              </router-link>
             </div>
-          </router-link>
-          <router-link to="/other">
             <div class="category" style="margin-right: 0px">
+              <router-link to="/other">
               <b-col><h5 style="padding-top: 10px"><i>Останато</i></h5>
-                <img src="../assets/simboli/magnifying-glass.png" style="width: 300px; height: 200px; margin-left: -60px; margin-top: -20px">
+                <img src="../assets/Desktop/magnifying-glass.png" style="width: 130px; height: 130px;  margin-top: -10px">
               </b-col>
+              </router-link>
             </div>
-          </router-link>
         </b-row>
       </b-container>
     </div>
