@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div id="header">
+
       <img src="../assets/logo.png" style="padding-bottom: 3px; width: 270px; height: 100px;">
       <h5 style="color: darkcyan"><i>Пронајдете места пристапни со инвалидска количка</i></h5>
     </div>
@@ -46,10 +47,8 @@
     </div>
   </div>
 </template>
-
 <script>
 // @ is an alias to /src
-
 export default {
   name: 'Home'
 }
@@ -66,9 +65,8 @@ export default {
 
   }
   #container{
-    height: 420px;
+    position: relative;
   }
-
   .home{
     background: lavender;
   }
