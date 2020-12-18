@@ -36,7 +36,7 @@ const routes = [
     component: Other
   },
   {
-    path: '/object',
+    path: '/objects/:id',
     name: 'Object',
     component: Object
   }

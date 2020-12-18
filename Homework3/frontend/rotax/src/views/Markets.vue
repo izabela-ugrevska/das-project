@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h3>Маркети</h3> <br> <br>
-    <ul id="marketList">
-      <li v-for="market in filteredMarkets" :key="market.name">
-        {{ market.name }}
-      </li>
-    </ul>
+    <h1>Маркети</h1>
+    <b-table hover :items="filteredMarkets">
+      <template #cell(name)="data">
+        <router-link :to="`/objects/:${data.value}`">{{ data.value }}</router-link>
+      </template>
+    </b-table>
   </div>
 </template>
 

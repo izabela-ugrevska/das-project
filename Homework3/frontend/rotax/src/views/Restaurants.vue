@@ -1,11 +1,11 @@
 <template>
   <div>
     <h1>Ресторани</h1>
-    <ul id="restaurantList">
-      <li v-for="restaurant in filteredRestaurants" :key="restaurant.name">
-        {{ restaurant.name }}
-      </li>
-    </ul>
+    <b-table hover :items="filteredRestaurants">
+      <template #cell(name)="data">
+        <router-link :to="`/objects/:${data.value}`">{{ data.value }}</router-link>
+      </template>
+    </b-table>
   </div>
 </template>
 
