@@ -6,11 +6,11 @@
     </div>
     <div id="container">
       <b-container class="tableOfMarkets">
-        <b-table id="marketTable" hover :items="filteredMarkets">
-          <template #cell(name)="data">
-            <router-link :to="`/objects/markets/${data.value}`">{{ data.value }}</router-link>
+        <div v-for="object in filteredMarkets" :key="object.name" class="market">
+          <template>
+            <router-link :to="`/objects/cafes/${object.name}`">{{ object.name }}</router-link>
           </template>
-        </b-table>
+        </div>
       </b-container>
     </div>
     <div id="footer">
@@ -57,22 +57,22 @@ for (let i = 0; i < markets.length; i++) {
   background: lavender;
 }
 .tableOfMarkets{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 1000px;
+}
+.market{
+  display: inline-block;
   width: 200px;
-  height: 200px;
-  margin-top: 120px;
-  margin-bottom: 100px;
-  background-color: lightgray;
-  font-size: 20px;
-}
-#marketTable td {
-  display: none;
-}
-#marketTable td:nth-child(2) {
-  display: block;
-  margin-bottom: 15px;
-}
-#marketTable th {
-  display: none;
+  height: 50px;
+  background: lightsteelblue;
+  text-align-all: center;
+  margin-right: 50px;
+  margin-bottom: 50px;
 }
 a{
   color: darkcyan;

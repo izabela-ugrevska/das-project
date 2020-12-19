@@ -28,6 +28,48 @@ export default [
     category: 'restaurant'
   },
   {
+    objectId: 309894643,
+    name: 'Лира',
+    longitude: '21.4315704',
+    latitude: '41.9953933',
+    phone: '+3892 311 2482',
+    website: 'https://www.pelisterhotel.com.mk/',
+    smokingtype: true,
+    outdoorSeating: true,
+    openingHours: 'Mo-Th 07:00-00:00 Fr-Sa 07:00-01:00 Su 10:30-00:00 ',
+    address: 'Плоштад Македонија',
+    cuisine: 'italian',
+    category: 'restaurant'
+  },
+  {
+    objectId: 309894643,
+    name: 'Бастион',
+    longitude: '21.4315704',
+    latitude: '41.9953933',
+    phone: '+3892 311 2482',
+    website: 'https://www.pelisterhotel.com.mk/',
+    smokingtype: true,
+    outdoorSeating: true,
+    openingHours: 'Mo-Th 07:00-00:00 Fr-Sa 07:00-01:00 Su 10:30-00:00 ',
+    address: 'Плоштад Македонија',
+    cuisine: 'italian',
+    category: 'restaurant'
+  },
+  {
+    objectId: 309894643,
+    name: 'Калабалак',
+    longitude: '21.4315704',
+    latitude: '41.9953933',
+    phone: '+3892 311 2482',
+    website: 'https://www.pelisterhotel.com.mk/',
+    smokingtype: true,
+    outdoorSeating: true,
+    openingHours: 'Mo-Th 07:00-00:00 Fr-Sa 07:00-01:00 Su 10:30-00:00 ',
+    address: 'Плоштад Македонија',
+    cuisine: 'italian',
+    category: 'restaurant'
+  },
+  {
     objectId: 459669395,
     name: 'Веро 7',
     longitude: '21.4345769',

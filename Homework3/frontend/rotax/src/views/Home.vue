@@ -45,11 +45,10 @@
     <div id="all_objects">
       <div class="search-wrapper">
         <input type="text" v-model="search" placeholder="Search title.."/>
-        <label>Search title:</label>
       </div>
       <div class="wrapper">
         <div class="card" v-for="object in filteredList" :key="object.name">
-          <router-link :to="`/objects/:${object.name}`">{{object.name}}</router-link>
+          <router-link :to="`/objects/searched/${object.name}`" class="link-to-object">{{object.name}}</router-link>
         </div>
       </div>
     </div>
@@ -113,9 +112,11 @@ export default {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+  }
 
   .search-wrapper {
     position: relative;
+  }
   label {
     position: absolute;
     font-size: 12px;
@@ -126,58 +127,36 @@ export default {
     transition: .15s all ease-in-out;
   }
   input {
+    height: 50px;
+    width: 300px;
     padding: 4px 12px;
     color: rgba(0,0,0,.70);
     border: 1px solid rgba(0,0,0,.12);
     transition: .15s all ease-in-out;
     background: white;
-  &:focus {
-     outline: none;
-     transform: scale(1.05);
-  & + label  {
-      font-size: 10px;
-      transform: translateY(-24px) translateX(-12px);
-    }
-  }
-  &::-webkit-input-placeholder {
-     font-size: 12px;
-     color: rgba(0,0,0,.50);
-     font-weight: 100;
-   }
-  }
   }
 
   .wrapper {
     display: flex;
-    max-width: 444px;
+    max-width: 1000px;
     flex-wrap: wrap;
     padding-top: 12px;
   }
 
   .card {
     box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
-    max-width: 124px;
+    width: 200px;
     margin: 12px;
     transition: .15s all ease-in-out;
-  &:hover {
-     transform: scale(1.1);
-   }
-  a {
+    background: lightgray;
+  }
+  .link-to-object {
     text-decoration: none;
     padding: 12px;
-    color: #03A9F4;
+    color: darkcyan;
     font-size: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
-  img {
-    height: 100px;
-  }
-  small {
-    font-size: 10px;
-    padding: 4px;
-  }
-  }
-  }
   }
 </style>

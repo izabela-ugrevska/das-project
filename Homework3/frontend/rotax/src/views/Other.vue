@@ -5,12 +5,12 @@
       <h6 style="..."><i>Кликнете објектот за кој сте заинтересирани, и дознајте повеќе информации!</i></h6>
     </div>
     <div id="container">
-      <b-container class="tableOfOther">
-        <b-table id="otherTable" hover :items="filteredOther">
-          <template #cell(name)="data">
-            <router-link :to="`/objects/other/${data.value}`">{{ data.value }}</router-link>
+      <b-container class="tableOfOthers">
+        <div v-for="object in filteredOther" :key="object.name" class="others">
+          <template>
+            <router-link :to="`/objects/others/${object.name}`">{{ object.name }}</router-link>
           </template>
-        </b-table>
+        </div>
       </b-container>
     </div>
     <div id="footer">
@@ -56,23 +56,23 @@ for (let i = 0; i < other.length; i++) {
 .other{
   background: lavender;
 }
-.tableOfOther{
+.tableOfOthers{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 1000px;
+}
+.others{
+  display: inline-block;
   width: 200px;
-  height: 200px;
-  margin-top: 120px;
-  margin-bottom: 100px;
-  background-color: lightgray;
-  font-size: 20px;
-}
-#otherTable td {
-  display: none;
-}
-#otherTable td:nth-child(2) {
-  display: block;
-  margin-bottom: 15px;
-}
-#otherTable th {
-  display: none;
+  height: 50px;
+  background: lightsteelblue;
+  text-align-all: center;
+  margin-right: 50px;
+  margin-bottom: 50px;
 }
 a{
   color: darkcyan;
