@@ -8,7 +8,7 @@
       <b-container class="tableOfRestaurants">
         <b-table id="restTable" hover :items="filteredRestaurants">
           <template #cell(name)="data">
-            <router-link :to="`/objects/:${data.value}`">{{ data.value }}</router-link>
+            <router-link :to="`/objects/restaurants/${data.value}`">{{ data.value }}</router-link>
           </template>
         </b-table>
       </b-container>
