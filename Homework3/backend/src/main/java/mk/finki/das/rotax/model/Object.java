@@ -1,6 +1,7 @@
 package mk.finki.das.rotax.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -43,6 +44,9 @@ public class Object {
 
     private String cuisine;
 
+    private Double rating;
+
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
@@ -74,5 +78,10 @@ public class Object {
 
     public void addReview(Review r){
         reviews.add(r);
+        Double sum = 0d;
+        for(Review review : reviews){
+            sum += review.getRating();
+        }
+        this.setRating(sum / reviews.size());
     }
 }

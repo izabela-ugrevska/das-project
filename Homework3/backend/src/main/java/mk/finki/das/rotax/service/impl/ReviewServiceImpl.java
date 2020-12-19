@@ -1,5 +1,6 @@
 package mk.finki.das.rotax.service.impl;
 
+import mk.finki.das.rotax.model.Object;
 import mk.finki.das.rotax.model.Review;
 import mk.finki.das.rotax.model.ReviewId;
 import mk.finki.das.rotax.repository.ObjectRepository;
@@ -43,8 +44,10 @@ public class ReviewServiceImpl implements ReviewService {
     public Review saveReview(Review review, Long userId, Long objectId) {
         ReviewId id = new ReviewId(objectId, userId);
         userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User Not Found!!!"));
-        objectRepository.findById(objectId).orElseThrow(() -> new RuntimeException("Object Not Found!!!"));
+        Object object = objectRepository.findById(objectId).orElseThrow(() -> new RuntimeException("Object Not Found!!!"));
         review.setReviewId(id);
+        object.addReview(review);
+        objectRepository.save(object);
         return reviewRepository.save(review);
     }
 

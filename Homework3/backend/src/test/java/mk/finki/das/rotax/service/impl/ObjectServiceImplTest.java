@@ -2,6 +2,7 @@ package mk.finki.das.rotax.service.impl;
 
 import mk.finki.das.rotax.model.Category;
 import mk.finki.das.rotax.model.Object;
+import mk.finki.das.rotax.repository.CategoryRepository;
 import mk.finki.das.rotax.repository.ObjectRepository;
 import mk.finki.das.rotax.service.ObjectService;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,10 +25,13 @@ class ObjectServiceImplTest {
     @Mock
     ObjectRepository objectRepository;
 
+    @Mock
+    CategoryRepository categoryRepository;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        objectService = new ObjectServiceImpl(objectRepository);
+        objectService = new ObjectServiceImpl(objectRepository, categoryRepository);
     }
 
     @Test
@@ -92,12 +96,12 @@ class ObjectServiceImplTest {
         objectSet.add(Object.builder().objectId(1L).category(category).build());
         objectSet.add(Object.builder().objectId(2L).category(category).build());
 
-        when(objectRepository.findByCategoryNameIgnoreCase(anyString())).thenReturn(objectSet);
+        when(objectRepository.findByCategory(any())).thenReturn(objectSet);
 
         Set<Object> objects = objectService.findByCategoryName("hotel");
         assertNotNull(objects);
         assertEquals(objects.size(), 2);
-        verify(objectRepository).findByCategoryNameIgnoreCase(anyString());
+        verify(objectRepository).findByCategory(any());
     }
 
     @Test

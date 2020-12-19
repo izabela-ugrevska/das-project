@@ -1,6 +1,8 @@
 package mk.finki.das.rotax.service.impl;
 
+import mk.finki.das.rotax.model.Category;
 import mk.finki.das.rotax.model.Object;
+import mk.finki.das.rotax.repository.CategoryRepository;
 import mk.finki.das.rotax.repository.ObjectRepository;
 import mk.finki.das.rotax.service.ObjectService;
 import org.springframework.stereotype.Service;
@@ -13,8 +15,11 @@ public class ObjectServiceImpl implements ObjectService {
 
     private final ObjectRepository objectRepository;
 
-    public ObjectServiceImpl(ObjectRepository objectRepository) {
+    private final CategoryRepository categoryRepository;
+
+    public ObjectServiceImpl(ObjectRepository objectRepository, CategoryRepository categoryRepository) {
         this.objectRepository = objectRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
@@ -51,17 +56,19 @@ public class ObjectServiceImpl implements ObjectService {
 
     @Override
     public Set<Object> findByCategoryName(String name) {
-        return objectRepository.findByCategoryNameIgnoreCase(name);
+        Category category = categoryRepository.findByNameIgnoreCase(name)
+                .orElseThrow(() -> new RuntimeException("Category Not Found!!!"));
+        return objectRepository.findByCategory(category);
+    }
+
+    @Override
+    public Set<Object> findByOutdoorSeating(Boolean outdoorSeating) {
+        return objectRepository.findByOutdoorSeating(outdoorSeating);
     }
 
     @Override
     public Set<Object> findBySmokingType(Boolean smokingType) {
         return objectRepository.findBySmokingType(smokingType);
-    }
-
-    @Override
-    public Set<Object> findByOutdoorSeating(Boolean seating) {
-        return objectRepository.findByOutdoorSeating(seating);
     }
 
 }

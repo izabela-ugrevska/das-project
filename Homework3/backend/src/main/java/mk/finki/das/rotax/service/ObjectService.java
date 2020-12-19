@@ -20,8 +20,8 @@ public interface ObjectService {
 
     Set<Object> findByCategoryName(String name);
 
-    Set<Object> findBySmokingType(Boolean smokingType);
+    Set<Object> findByOutdoorSeating(Boolean outdoorSeating);
 
-    Set<Object> findByOutdoorSeating(Boolean seating);
+    Set<Object> findBySmokingType(Boolean smokingType);
 
 }

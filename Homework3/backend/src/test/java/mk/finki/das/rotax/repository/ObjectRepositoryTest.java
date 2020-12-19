@@ -54,8 +54,8 @@ class ObjectRepositoryTest {
 
     @Test
     void findByCategoryName() {
-        String name = "category1";
-        Set<Object> objects = objectRepository.findByCategoryNameIgnoreCase(name);
+        Category category = Category.builder().categoryId(2L).build();
+        Set<Object> objects = objectRepository.findByCategory(category);
 
         assertEquals(objects.size(), 1);
     }
