@@ -44,7 +44,7 @@
     </div>
     <div id="all_objects">
       <div class="search-wrapper">
-        <input type="text" v-model="search" placeholder="Search title.."/>
+        <input type="text" v-model="search" placeholder="Search title.." id="search-bar">
       </div>
       <div class="wrapper">
         <div class="card" v-for="object in filteredList" :key="object.name">
@@ -126,7 +126,7 @@ export default {
     z-index: -1;
     transition: .15s all ease-in-out;
   }
-  input {
+  #search-bar {
     height: 50px;
     width: 300px;
     padding: 4px 12px;

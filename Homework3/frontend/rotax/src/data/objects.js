@@ -119,7 +119,7 @@ export default [
     phone: '+389 72 311 794',
     website: '',
     smokingtype: true,
-    outdoorSeating: true,
+    outdoorSeating: false,
     openingHours: 'Mo-Thu 10:00-24:00  Fr-Sa 10:00-01:00',
     address: 'Кеј 13 Ноември',
     cuisine: 'mexican',
