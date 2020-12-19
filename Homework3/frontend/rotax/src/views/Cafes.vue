@@ -5,10 +5,19 @@
       <h6 style="..."><i>Кликнете на кафе барот за кој сте заинтересирани, и дознајте повеќе информации!</i></h6>
     </div>
     <div id="container">
+      <div id="filter">
+        <h4>Filter by:</h4>
+        <div v-for="tag in tags" :key="tag.value" style="display: inline-block;">
+          <input type="checkbox" :value="tag" v-model="selectedTags" :id="tag">{{tag}}
+        </div>
+        <p v-show="selectedTags.length != 0">
+          Filters: <span v-for="tag in selectedTags" :key="tag.value" class="label">{{ tag }} </span>
+        </p>
+      </div>
       <b-container class="tableOfCafes">
-        <div v-for="object in filteredCafes" :key="object.name" class="cafe">
+        <div v-for="cafe in activeCafes" :key="cafe.name" class="cafe">
           <template>
-            <router-link :to="`/objects/cafes/${object.name}`">{{ object.name }}</router-link>
+            <router-link :to="`/objects/cafes/${cafe.name}`">{{ cafe.name }}</router-link>
           </template>
         </div>
       </b-container>
@@ -24,8 +33,25 @@ import cafes from '@/data/objects'
 export default {
   data () {
     return {
-      cafes,
-      filteredCafes
+      tags: ['smokingtype', 'outdoorSeating'],
+      filteredCafes,
+      selectedTags: []
+    }
+  },
+  computed: {
+    activeCafes: function () {
+      if (this.selectedTags.length === 0) return this.filteredCafes
+      const activeCafes = []
+      const filters = this.selectedTags
+      this.filteredCafes.forEach(function (cafe) {
+        function cafeContainsFilter (filter) {
+          return cafe[filter] === true
+        }
+        if (filters.every(cafeContainsFilter)) {
+          activeCafes.push(cafe)
+        }
+      })
+      return activeCafes
     }
   }
 }
@@ -56,9 +82,21 @@ for (let i = 0; i < cafes.length; i++) {
 .cafes{
   background: lavender;
 }
+input{
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+#filter{
+  position: absolute;
+  left: 0px;
+  text-align: left;
+  border: 1px gray solid;
+}
 .tableOfCafes{
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
   -ms-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translate(-50%,-50%);

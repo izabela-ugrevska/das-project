@@ -61,7 +61,6 @@ export default {
         this.obj = objects[i]
       }
     }
-    console.log(this.obj.name)
   }
 }
 </script>
