@@ -1,8 +1,10 @@
 <template>
   <div>
-    <h1>Object</h1>
-    <h1> {{obj.address}} </h1>
-    <h1>{{obj.name}}</h1>
+    <h1> {{obj.name}} </h1>
+    <h2>{{obj.address}}</h2>
+    <h2>{{obj.phone}}</h2>
+    <h2>{{obj.website}}</h2>
+    <h2>{{obj.openingHours}}</h2>
   </div>
 </template>
 <script>
@@ -21,12 +23,12 @@ export default {
   },
   mounted () {
     const name = this.$route.params.id
-    const parts = name.split(':')
     for (let i = 0; i < objects.length; i++) {
-      if (parts[1] === objects[i].name) {
+      if (name === objects[i].name) {
         this.obj = objects[i]
       }
     }
+    console.log(this.obj.name)
   }
 }
 </script>
