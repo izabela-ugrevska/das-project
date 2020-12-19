@@ -75,7 +75,7 @@ export default {
 }
 #container1{
   height: 500px;
-  background: darkslategrey;
+  background: lavender;
 }
 #footer{
   background: lightgray;

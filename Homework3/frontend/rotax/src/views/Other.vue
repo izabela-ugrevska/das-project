@@ -69,7 +69,7 @@ for (let i = 0; i < other.length; i++) {
   display: inline-block;
   width: 200px;
   height: 50px;
-  background: lightsteelblue;
+  background: lightgray;
   text-align-all: center;
   margin-right: 50px;
   margin-bottom: 50px;
