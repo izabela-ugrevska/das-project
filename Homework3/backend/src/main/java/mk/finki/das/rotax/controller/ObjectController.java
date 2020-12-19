@@ -33,7 +33,7 @@ public class ObjectController {
         return objectService.findById(id);
     }
 
-    @GetMapping("/{categoryName}")
+    @GetMapping("/category/{categoryName}")
     @ResponseStatus(HttpStatus.OK)
     public Set<Object> getObjectsByCategoryName(@PathVariable String categoryName){
         return objectService.findByCategoryName(categoryName);

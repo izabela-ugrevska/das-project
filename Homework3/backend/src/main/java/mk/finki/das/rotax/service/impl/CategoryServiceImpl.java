@@ -30,6 +30,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public Category findByName(String name) {
+        return categoryRepository.findByNameIgnoreCase(name)
+                .orElseThrow(() -> new RuntimeException("Category Not Found!!!"));
+    }
+
+    @Override
     public Category saveCategory(Category category) {
         return categoryRepository.save(category);
     }
