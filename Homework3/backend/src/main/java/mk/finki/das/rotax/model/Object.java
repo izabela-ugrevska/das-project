@@ -1,15 +1,17 @@
 package mk.finki.das.rotax.model;
 
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
 @Entity
 @Table(name = "objects")
@@ -47,4 +49,29 @@ public class Object {
     @OneToMany(mappedBy = "object")
     private Set<Review> reviews;
 
+    public Object(Long objectId, String name, String longitude, String latitude, String phone, String website,
+                  Boolean smokingType, Boolean outdoorSeating, String openingHours, String address, String cuisine,
+                  Category category) {
+        this.objectId = objectId;
+        this.name = name;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.phone = phone;
+        this.website = website;
+        this.smokingType = smokingType;
+        this.outdoorSeating = outdoorSeating;
+        this.openingHours = openingHours;
+        this.address = address;
+        this.cuisine = cuisine;
+        this.category = category;
+        reviews = new HashSet<>();
+    }
+
+    public Object() {
+        reviews = new HashSet<>();
+    }
+
+    public void addReview(Review r){
+        reviews.add(r);
+    }
 }
