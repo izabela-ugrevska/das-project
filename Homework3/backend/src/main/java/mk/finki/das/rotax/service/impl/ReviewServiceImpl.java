@@ -42,6 +42,8 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public Review saveReview(Review review, Long userId, Long objectId) {
         ReviewId id = new ReviewId(objectId, userId);
+        userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User Not Found!!!"));
+        objectRepository.findById(objectId).orElseThrow(() -> new RuntimeException("Object Not Found!!!"));
         review.setReviewId(id);
         return reviewRepository.save(review);
     }
