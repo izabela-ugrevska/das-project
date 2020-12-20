@@ -8,7 +8,7 @@
       <div id="filter">
         <h4>Filter by:</h4>
         <div v-for="tag in tags" :key="tag.value" style="display: inline-block;">
-          <input type="checkbox" :value="tag" v-model="selectedTags" :id="tag">{{tag}}
+          <input class="checkbox" type="checkbox" :value="tag" v-model="selectedTags" :id="tag">{{tag}}
         </div>
         <p v-show="selectedTags.length != 0">
           Filters: <span v-for="tag in selectedTags" :key="tag.value" class="label">{{ tag }} </span>
@@ -92,7 +92,7 @@ export default {
 .restaurants{
   background: lavender;
 }
-input{
+.checkbox{
   width: 20px;
   height: 20px;
   margin-left: 10px;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="full">
     <div id="header1" style="font-family: Helvetica; font-size: 100px; font-style: italic">
       <h1>{{obj.name}}</h1>
     </div>
@@ -43,6 +43,14 @@
           </b-col>
         </b-row>
       </b-container>
+    </div>
+    <div class="reviews">
+      <div class="add-review">
+        <input type="text" id="addReview"><input type="button" value="Add">
+      </div>
+      <div class="review" v-for="review in obj.reviews" :key="review">
+        {{review}}
+      </div>
     </div>
     <div id="footer">
       <h5 style="padding-top: 90px"><i></i></h5>
@@ -89,9 +97,16 @@ export default {
   padding-bottom: 35px;
   padding-top: 35px;
 }
+#full{
+  background: lavender;
+}
 #container1{
   height: 500px;
   background: lavender;
+}
+#addReview{
+  length: 200px;
+  width: 400px;
 }
 #footer{
   background: lightgray;

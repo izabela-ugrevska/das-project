@@ -11,24 +11,23 @@
   </div>-->
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href class="navbar-brand" @click.prevent>bezKoder</a>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link to="/" class="nav-link">
-            <font-awesome-icon icon="home" />Home
+            <font-awesome-icon icon="home" />Дома
           </router-link>
         </li>
         <li>
-          <router-link to="/restaurants">Ресторани</router-link>
+          <router-link to="/restaurants" class="nav-link"><font-awesome-icon/>Ресторани</router-link>
         </li>
        <li>
-         <router-link to="/cafes">Кафе-барови</router-link>
+         <router-link to="/cafes" class="nav-link">Кафе-барови</router-link>
        </li>
         <li>
-          <router-link to="/markets">Маркети</router-link>
+          <router-link to="/markets" class="nav-link">Маркети</router-link>
         </li>
         <li>
-          <router-link to="/other">Останато</router-link>
+          <router-link to="/other" class="nav-link">Останато</router-link>
         </li>
       </div>
 
