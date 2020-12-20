@@ -6,6 +6,8 @@ import Cafes from '../views/Cafes.vue'
 import Markets from '../views/Markets.vue'
 import Other from '../views/Other.vue'
 import Object from '../views/Object.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
 
 Vue.use(VueRouter)
 
@@ -14,6 +16,14 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/register',
+    component: Register
   },
   {
     path: '/restaurants',
