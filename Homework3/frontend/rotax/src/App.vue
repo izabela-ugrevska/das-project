@@ -1,4 +1,4 @@
-<template>
+np<template>
  <!-- <div id="app">
     <div id="nav">
       <router-link to="/">Дома</router-link> |
