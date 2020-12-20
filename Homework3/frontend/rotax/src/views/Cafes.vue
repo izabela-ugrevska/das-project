@@ -17,7 +17,7 @@
       <b-container class="tableOfCafes">
         <div v-for="cafe in activeCafes" :key="cafe.name" class="cafe">
           <template>
-            <router-link :to="`/objects/cafes/${cafe.name}`">{{ cafe.name }}</router-link>
+            <router-link :to="`/objects/cafes/${cafe.objectId}`">{{ cafe.name }}</router-link>
           </template>
         </div>
       </b-container>
@@ -29,21 +29,31 @@
 </template>
 
 <script>
-import cafes from '@/data/objects'
+import ObjectAxiosData from '../data/ObjectAxiosData'
 export default {
   data () {
     return {
       tags: ['smokingtype', 'outdoorSeating'],
-      filteredCafes,
+      cafes: [],
       selectedTags: []
     }
   },
+  methods: {
+    refreshCafes () {
+      ObjectAxiosData.retrieveCafes().then((res) => {
+        this.cafes = res.data
+      })
+    }
+  },
+  created () {
+    this.refreshCafes()
+  },
   computed: {
     activeCafes: function () {
-      if (this.selectedTags.length === 0) return this.filteredCafes
+      if (this.selectedTags.length === 0) return this.cafes
       const activeCafes = []
       const filters = this.selectedTags
-      this.filteredCafes.forEach(function (cafe) {
+      this.cafes.forEach(function (cafe) {
         function cafeContainsFilter (filter) {
           return cafe[filter] === true
         }
@@ -56,12 +66,12 @@ export default {
   }
 }
 
-var filteredCafes = []
-for (let i = 0; i < cafes.length; i++) {
-  if (cafes[i].category === 'cafe') {
-    filteredCafes.push(cafes[i])
-  }
-}
+// var filteredCafes = []
+// for (let i = 0; i < cafes.length; i++) {
+//   if (cafes[i].category === 'cafe') {
+//     filteredCafes.push(cafes[i])
+//   }
+// }
 </script>
 
 <style>

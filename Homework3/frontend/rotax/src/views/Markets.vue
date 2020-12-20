@@ -6,9 +6,9 @@
     </div>
     <div id="container">
       <b-container class="tableOfMarkets">
-        <div v-for="object in filteredMarkets" :key="object.name" class="market">
+        <div v-for="object in markets" :key="object.name" class="market">
           <template>
-            <router-link :to="`/objects/cafes/${object.name}`">{{ object.name }}</router-link>
+            <router-link :to="`/objects/markets/${object.objectId}`">{{ object.name }}</router-link>
           </template>
         </div>
       </b-container>
@@ -20,22 +20,31 @@
 </template>
 
 <script>
-import markets from '@/data/objects'
+import ObjectAxiosData from '../data/ObjectAxiosData'
 export default {
   data () {
     return {
-      markets,
-      filteredMarkets
+      markets: []
     }
+  },
+  methods: {
+    refreshMarkets () {
+      ObjectAxiosData.retrieveMarkets().then((res) => {
+        this.markets = res.data
+      })
+    }
+  },
+  created () {
+    this.refreshMarkets()
   }
 }
 
-var filteredMarkets = []
-for (let i = 0; i < markets.length; i++) {
-  if (markets[i].category === 'market') {
-    filteredMarkets.push(markets[i])
-  }
-}
+// var filteredMarkets = []
+// for (let i = 0; i < markets.length; i++) {
+//   if (markets[i].category === 'market') {
+//     filteredMarkets.push(markets[i])
+//   }
+// }
 </script>
 
 <style>

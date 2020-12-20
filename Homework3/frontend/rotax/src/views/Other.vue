@@ -6,9 +6,9 @@
     </div>
     <div id="container">
       <b-container class="tableOfOthers">
-        <div v-for="object in filteredOther" :key="object.name" class="others">
+        <div v-for="object in others" :key="object.name" class="others">
           <template>
-            <router-link :to="`/objects/others/${object.name}`">{{ object.name }}</router-link>
+            <router-link :to="`/objects/others/${object.objectId}`">{{ object.name }}</router-link>
           </template>
         </div>
       </b-container>
@@ -20,22 +20,31 @@
 </template>
 
 <script>
-import other from '@/data/objects'
+import ObjectAxiosData from '../data/ObjectAxiosData'
 export default {
   data () {
     return {
-      other,
-      filteredOther
+      others: []
     }
+  },
+  methods: {
+    refreshOthers () {
+      ObjectAxiosData.retrieveOthers().then((res) => {
+        this.others = res.data
+      })
+    }
+  },
+  created () {
+    this.refreshOthers()
   }
 }
 
-var filteredOther = []
-for (let i = 0; i < other.length; i++) {
-  if (other[i].category === 'other') {
-    filteredOther.push(other[i])
-  }
-}
+// var filteredOther = []
+// for (let i = 0; i < other.length; i++) {
+//   if (other[i].category === 'other') {
+//     filteredOther.push(other[i])
+//   }
+// }
 </script>
 
 <style>

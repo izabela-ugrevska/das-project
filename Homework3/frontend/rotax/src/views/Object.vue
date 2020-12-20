@@ -42,24 +42,30 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import objects from '@/data/objects'
+import ObjectAxiosData from '../data/ObjectAxiosData'
 export default {
   data () {
     return {
       obj: {}
     }
   },
+  methods: {
+    refreshObject () {
+      ObjectAxiosData.retrieveObjectById(this.id).then((res) => {
+        this.obj = res.data
+      })
+    }
+  },
+  created () {
+    this.refreshObject()
+  },
   computed: {
     ...mapState([
       'objects'
-    ])
-  },
-  mounted () {
-    const name = this.$route.params.id
-    for (let i = 0; i < objects.length; i++) {
-      if (name === objects[i].name) {
-        this.obj = objects[i]
-      }
+    ]),
+    id () {
+      console.log(this.$route.params.id)
+      return this.$route.params.id
     }
   }
 }
