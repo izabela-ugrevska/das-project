@@ -1,4 +1,5 @@
 <template>
+  <div class="cont">
   <div class="col-md-12">
     <div class="card card-container">
       <img
@@ -9,7 +10,7 @@
       <form name="form" @submit.prevent="handleRegister">
         <div v-if="!successful">
           <div class="form-group">
-            <label for="username">Username</label>
+            <h4>Username</h4>
             <input
               v-model="user.username"
               v-validate="'required|min:3|max:20'"
@@ -24,7 +25,7 @@
             >{{errors.first('username')}}</div>
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
+            <h4>Email</h4>
             <input
               v-model="user.email"
               v-validate="'required|email|max:50'"
@@ -39,7 +40,7 @@
             >{{errors.first('email')}}</div>
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+            <h4>Password</h4>
             <input
               v-model="user.password"
               v-validate="'required|min:6|max:40'"
@@ -65,6 +66,7 @@
         :class="successful ? 'alert-success' : 'alert-danger'"
       >{{message}}</div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -124,7 +126,7 @@ export default {
   }
 
   .card-container.card {
-    max-width: 350px !important;
+    width: 400px !important;
     padding: 40px 40px;
   }
 

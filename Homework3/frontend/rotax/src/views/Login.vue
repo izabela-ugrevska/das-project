@@ -8,7 +8,7 @@
       />
       <form name="form" @submit.prevent="handleLogin">
         <div class="form-group">
-          <label for="username">Username</label>
+          <h4>Username</h4>
           <input
             v-model="user.username"
             v-validate="'required'"
@@ -24,7 +24,7 @@
           >Username is required!</div>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <h4>Password</h4>
           <input
             v-model="user.password"
             v-validate="'required'"
@@ -110,7 +110,7 @@ export default {
   }
 
   .card-container.card {
-    max-width: 350px !important;
+    width: 400px !important;
     padding: 40px 40px;
   }
 
