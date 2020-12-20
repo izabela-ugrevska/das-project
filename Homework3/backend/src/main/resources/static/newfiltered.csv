@@ -1,10 +1,5 @@
 @id,@lon,@lat,name,amenity,phone,website,smoking,outdoor_seating,opening_hours,addr:street,cuisine
-309875534,21.4355937,41.9950681,Ирски паб Св. Патрик,cafe,+389(0)23256337 ,http://www.irishpub.com.mk/,yes,yes,10:00-24:00  Fr-Sa 10:00-01:00,Кеј 13 Ноември,international
-309894643,21.4315704,41.9953933,Пелистер,restaurant,+3892 311 2482,https://www.pelisterhotel.com.mk/,yes,yes,Mo-Th 07:00-00:00 Fr-Sa 07:00-01:00 Su 10:30-00:00 ,Плоштад Македонија,italian
-459669395,21.4345769,41.9947502,Веро 7,market,+389 2 3232640,https://vero.com.mk/Marketi/Vero7,,,08:00-22:00,Кеј 13 Ноември,
 1577484301,21.3915561,42.0037659,Тц Сити Мол,mall,,http://skopjecitymall.mk/,,,10:00-22:00,Булевар Партизански Одереди,
-1751563134,21.4245254,41.9947645,Pastel Wine & Dine,restaurant,+389 2 3214447,http://pastel.mk/,yes,yes,Mo-Fr 06:30-21:00 Sa 06:30-17:00  Su 06:30-16:00 ,Булевар Климент Охридски,international
-1860365681,21.4414652,41.9930392,Веро 9,market,+389 2 3088400,https://vero.com.mk/Marketi/Vero9,,,09:00-22:00,Koco Racin,
 2651660025,21.4413127,41.9931873,Vero Centar Веро Центар,market,,https://vero.com.mk/marketi/vero-centar/,,,09:00-22:00,Булевар Кочо Рацин,
 2695392360,21.4343506,41.9954474,Casa Cubana,cafe,+389 72 311 794,/,yes,yes,Mo-Thu 10:00-24:00  Fr-Sa 10:00-01:00,Кеј 13 Ноември,
 3099553252,21.626938,41.9612516,Burger King,restaurant,,/,no,yes,09:00-23:00, Кеј 13-ти Ноември,burger

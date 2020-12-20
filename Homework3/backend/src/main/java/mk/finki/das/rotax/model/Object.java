@@ -2,6 +2,7 @@ package mk.finki.das.rotax.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,6 +35,7 @@ public class Object {
 
     private String website;
 
+    @JsonProperty("smoking")
     private Boolean smokingType;
 
     private Boolean outdoorSeating;

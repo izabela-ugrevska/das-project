@@ -1,6 +1,5 @@
 package mk.finki.das.rotax.service.impl;
 
-import mk.finki.das.rotax.model.Category;
 import mk.finki.das.rotax.model.User;
 import mk.finki.das.rotax.repository.UserRepository;
 import mk.finki.das.rotax.service.UserService;
@@ -8,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
