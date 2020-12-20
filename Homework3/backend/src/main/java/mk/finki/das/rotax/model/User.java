@@ -15,7 +15,11 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(	name = "users",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "username"),
+                @UniqueConstraint(columnNames = "email")
+        })
 public class User {
 
     @Id
@@ -32,16 +36,26 @@ public class User {
 
     private String lastName;
 
+    private String email;
+
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private Set<Review> reviews;
 
-    public User(Long userId, String username, String password, String firstName, String lastName) {
+    public User(Long userId, String username, String password, String firstName, String lastName, String email) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+        reviews = new HashSet<>();
+    }
+
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
         reviews = new HashSet<>();
     }
 

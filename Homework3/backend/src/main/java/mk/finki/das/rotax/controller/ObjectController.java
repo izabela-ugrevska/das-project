@@ -1,6 +1,7 @@
 package mk.finki.das.rotax.controller;
 
 import mk.finki.das.rotax.model.Object;
+import mk.finki.das.rotax.model.Review;
 import mk.finki.das.rotax.service.ObjectService;
 import mk.finki.das.rotax.service.ReviewService;
 import org.springframework.http.HttpStatus;
@@ -38,6 +39,12 @@ public class ObjectController {
     @ResponseStatus(HttpStatus.OK)
     public Set<Object> getObjectsByCategoryName(@PathVariable String categoryName){
         return objectService.findByCategoryName(categoryName);
+    }
+
+    @PostMapping("/{objectId}/{userId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Review createReview(@PathVariable Long objectId, @PathVariable Long userId, @RequestBody Review review){
+        return reviewService.saveReview(review, userId, objectId);
     }
 
 }
