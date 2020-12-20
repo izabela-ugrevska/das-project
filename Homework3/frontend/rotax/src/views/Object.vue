@@ -7,29 +7,39 @@
       <b-container>
         <b-row style="align-content: space-evenly">
 
-          <b-col v-show="obj.phone!=''">
+          <b-col v-show="obj.phone!=''"> <br> <br>
             <img src="../assets/Desktop/phone.png" style="height: 100px;">
             <h6>{{obj.phone}}</h6>
           </b-col>
-          <b-col v-show="obj.website != ''">
+          <b-col v-show="obj.website != ''"> <br> <br>
             <img src="../assets/Desktop/www.png" style="height: 100px;">
             <h6>{{obj.website}}</h6>
           </b-col>
-          <b-col v-show="obj.openingHours!=''">
+          <b-col v-show="obj.openingHours!=''"> <br> <br>
             <img src="../assets/Desktop/clock.png" style="height: 100px;">
             <h6>{{obj.openingHours}}</h6>
           </b-col>
-          <b-col v-show="obj.smokingtype===true">
+          <b-col v-show="obj.smokingtype===true"> <br> <br>
             <img src="../assets/Desktop/cigarette.png" style="height: 100px;">
             <h6>Дозволено</h6>
           </b-col>
-          <b-col v-show="obj.outdoorSeating===true">
+          <b-col v-show="obj.outdoorSeating===true"> <br> <br>
             <img src="../assets/Desktop/leaf.png" style="height: 100px;">
             <h6>има надворешен дел</h6>
           </b-col>
-          <b-col v-show="obj.cuisine!=null">
+          <b-col v-show="obj.cuisine!=null"> <br> <br>
             <img src="../assets/Desktop/utilities.png" style="height: 100px">
             <h6>Кујна: {{obj.cuisine}}</h6>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <div id="map">
+              <GmapMap
+                :center="{lat: parseFloat(obj.latitude), lng: parseFloat(obj.longitude)}"
+                :zoom="18"
+                style="width:400px; height:250px; margin: 32px auto;"></GmapMap>
+            </div>
           </b-col>
         </b-row>
       </b-container>
@@ -43,6 +53,7 @@
 <script>
 import { mapState } from 'vuex'
 import ObjectAxiosData from '../data/ObjectAxiosData'
+
 export default {
   data () {
     return {
