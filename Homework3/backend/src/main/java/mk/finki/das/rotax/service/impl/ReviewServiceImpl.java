@@ -2,7 +2,7 @@ package mk.finki.das.rotax.service.impl;
 
 import mk.finki.das.rotax.model.Object;
 import mk.finki.das.rotax.model.Review;
-import mk.finki.das.rotax.model.ReviewId;
+import mk.finki.das.rotax.model.User;
 import mk.finki.das.rotax.repository.ObjectRepository;
 import mk.finki.das.rotax.repository.ReviewRepository;
 import mk.finki.das.rotax.repository.UserRepository;
@@ -28,32 +28,24 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public Set<Review> findByObject(Long objectId) {
-        Set<Review> reviews = new HashSet<>();
-        reviewRepository.findAllByReviewIdObjectId(objectId).iterator().forEachRemaining(reviews::add);
-        return reviews;
-    }
-
-    @Override
-    public Review findById(Long userId, Long objectId) {
-        ReviewId id = new ReviewId(objectId, userId);
+    public Review findById(Long id) {
         return reviewRepository.findById(id).orElseThrow(() -> new RuntimeException("Review Not Found!!!"));
     }
 
     @Override
-    public Review saveReview(Review review, Long userId, Long objectId) {
-        ReviewId id = new ReviewId(objectId, userId);
-        userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User Not Found!!!"));
+    public Review saveReview(Review review, String username, Long objectId) {
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User Not Found!!!"));
         Object object = objectRepository.findById(objectId).orElseThrow(() -> new RuntimeException("Object Not Found!!!"));
-        review.setReviewId(id);
-        object.addReview(review);
+        review.setObject(object);
+        review.setUser(user);
+        Review reviewSaved = reviewRepository.save(review);
+        object.addReview(reviewSaved);
         objectRepository.save(object);
-        return reviewRepository.save(review);
+        return reviewSaved;
     }
 
     @Override
-    public void deleteById(Long userId, Long objectId) {
-        ReviewId id = new ReviewId(objectId, userId);
+    public void deleteById(Long id) {
         reviewRepository.deleteById(id);
     }
 }

@@ -1,7 +1,6 @@
 package mk.finki.das.rotax.service.impl;
 
 import mk.finki.das.rotax.model.Review;
-import mk.finki.das.rotax.model.ReviewId;
 import mk.finki.das.rotax.repository.ObjectRepository;
 import mk.finki.das.rotax.repository.ReviewRepository;
 import mk.finki.das.rotax.repository.UserRepository;
@@ -37,33 +36,15 @@ class ReviewServiceImplTest {
     }
 
     @Test
-    void findByObject() {
-        List<Review> reviewList = new ArrayList<>();
-        Review review1 = new Review();
-        review1.setReviewId(new ReviewId(1L, 1L));
-        reviewList.add(review1);
-        Review review2 = new Review();
-        review2.setReviewId(new ReviewId(2L, 2L));
-        reviewList.add(review2);
-
-        when(reviewRepository.findAllByReviewIdObjectId(anyLong())).thenReturn(reviewList);
-
-        Set<Review> reviews = reviewService.findByObject(1L);
-        assertEquals(reviews.size(), 2);
-        verify(reviewRepository, times(1)).findAllByReviewIdObjectId(anyLong());
-    }
-
-    @Test
     void findById() {
         Review review = new Review();
-        ReviewId reviewId = new ReviewId(1L, 1L);
-        review.setReviewId(reviewId);
+        review.setReviewId(1L);
 
-        when(reviewRepository.findById(any(ReviewId.class))).thenReturn(Optional.of(review));
+        when(reviewRepository.findById(anyLong())).thenReturn(Optional.of(review));
 
-        Review reviewReturned = reviewService.findById(1L, 1L);
+        Review reviewReturned = reviewService.findById(1L);
         assertNotNull(reviewReturned);
-        verify(reviewRepository).findById(any(ReviewId.class));
+        verify(reviewRepository).findById(anyLong());
     }
 
     @Test
@@ -72,7 +53,7 @@ class ReviewServiceImplTest {
 
     @Test
     void deleteById() {
-        reviewService.deleteById(1L, 1L);
-        verify(reviewRepository, times(1)).deleteById(any(ReviewId.class));
+        reviewService.deleteById(1L);
+        verify(reviewRepository, times(1)).deleteById(anyLong());
     }
 }

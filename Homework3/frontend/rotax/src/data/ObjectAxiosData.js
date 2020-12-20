@@ -27,8 +27,8 @@ class ObjectAxiosData {
     return axios.get(`${OBJECT_API_URL}/category/other`)
   }
 
-  createReview (objectId, userId) {
-    return axios.post(`${OBJECT_API_URL}/${objectId}/${userId}`)
+  createReview (objectId, username, review) {
+    return axios.post(`${OBJECT_API_URL}/${objectId}/${username}`, review)
   }
 }
 

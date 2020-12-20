@@ -13,18 +13,18 @@ import javax.persistence.*;
 @Table(name = "reviews")
 public class Review {
 
-    @EmbeddedId
-    private ReviewId reviewId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "review_id")
+    private Long reviewId;
 
     @JsonIgnore
     @ManyToOne
-    @MapsId("userId")
     @JoinColumn(name = "user_id")
     private User user;
 
     @JsonIgnore
     @ManyToOne
-    @MapsId("objectId")
     @JoinColumn(name = "object_id")
     private Object object;
 

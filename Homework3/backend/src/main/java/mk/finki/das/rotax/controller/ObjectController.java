@@ -42,10 +42,10 @@ public class ObjectController {
         return objectService.findByCategoryName(categoryName);
     }
 
-    @PostMapping("/{objectId}/{userId}")
+    @PostMapping("/{objectId}/{username}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Review createReview(@PathVariable Long objectId, @PathVariable Long userId, @RequestBody Review review){
-        return reviewService.saveReview(review, userId, objectId);
+    public Review createReview(@PathVariable Long objectId, @PathVariable String username, @RequestBody Review review){
+        return reviewService.saveReview(review, username, objectId);
     }
 
 }

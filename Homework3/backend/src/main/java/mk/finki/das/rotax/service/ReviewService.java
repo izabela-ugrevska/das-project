@@ -6,12 +6,10 @@ import java.util.Set;
 
 public interface ReviewService {
 
-    Set<Review> findByObject(Long objectId);
+    Review findById(Long id);
 
-    Review findById(Long userId, Long objectId);
+    Review saveReview(Review review, String username, Long objectId);
 
-    Review saveReview(Review review, Long userId, Long objectId);
-
-    void deleteById(Long userId, Long objectId);
+    void deleteById(Long id);
 
 }
