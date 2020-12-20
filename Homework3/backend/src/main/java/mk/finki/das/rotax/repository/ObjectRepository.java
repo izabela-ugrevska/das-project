@@ -1,20 +1,21 @@
 package mk.finki.das.rotax.repository;
 
+import mk.finki.das.rotax.model.Category;
 import mk.finki.das.rotax.model.Object;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
+import java.util.Set;
 
 public interface ObjectRepository extends JpaRepository<Object, Long> {
 
-    Optional<Object> findByNameIgnoreCaseContaining(String name);
+    Set<Object> findByNameIgnoreCaseContaining(String name);
 
-    Optional<Object> findByAddressIgnoreCaseContaining(String city);
+    Set<Object> findByAddressIgnoreCaseContaining(String city);
 
-    Optional<Object> findByCategoryNameIgnoreCase(String name);
+    Set<Object> findByCategory(Category category);
 
-    Optional<Object> findBySmokingType(Boolean smokingType);
+    Set<Object> findBySmokingType(Boolean smokingType);
 
-    Optional<Object> findByOutdoorSeating(Boolean seating);
+    Set<Object> findByOutdoorSeating(Boolean seating);
 
 }
