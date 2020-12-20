@@ -3,6 +3,7 @@ package mk.finki.das.rotax.controller;
 import mk.finki.das.rotax.model.User;
 import mk.finki.das.rotax.service.UserService;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;

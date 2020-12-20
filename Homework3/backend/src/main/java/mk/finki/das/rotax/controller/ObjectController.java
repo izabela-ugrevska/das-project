@@ -5,6 +5,7 @@ import mk.finki.das.rotax.model.Review;
 import mk.finki.das.rotax.service.ObjectService;
 import mk.finki.das.rotax.service.ReviewService;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
