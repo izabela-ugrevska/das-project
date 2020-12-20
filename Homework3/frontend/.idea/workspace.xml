@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f867c0ef-1a37-40d5-9ce4-6bd62a47412d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/rotax/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/rotax/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rotax/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/rotax/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rotax/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/rotax/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rotax/src/views/Object.vue" beforeDir="false" afterPath="$PROJECT_DIR$/rotax/src/views/Object.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +22,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -53,7 +53,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608464841990</updated>
       <workItem from="1608464843153" duration="673000" />
-      <workItem from="1608468195316" duration="1298000" />
+      <workItem from="1608468195316" duration="2043000" />
     </task>
     <servers />
   </component>
@@ -65,21 +65,21 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1608468278028" />
-    <state width="1345" height="172" key="GridCell.Tab.0.bottom" timestamp="1608469030568">
+    <state width="1345" height="172" key="GridCell.Tab.0.bottom" timestamp="1608471048958">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="172" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608469030568" />
-    <state width="1345" height="172" key="GridCell.Tab.0.center" timestamp="1608469030567">
+    <state width="1345" height="172" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1608471048958" />
+    <state width="1345" height="172" key="GridCell.Tab.0.center" timestamp="1608471048958">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="172" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1608469030567" />
-    <state width="1345" height="172" key="GridCell.Tab.0.left" timestamp="1608469030567">
+    <state width="1345" height="172" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1608471048958" />
+    <state width="1345" height="172" key="GridCell.Tab.0.left" timestamp="1608471048958">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="172" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1608469030567" />
-    <state width="1345" height="172" key="GridCell.Tab.0.right" timestamp="1608469030567">
+    <state width="1345" height="172" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1608471048958" />
+    <state width="1345" height="172" key="GridCell.Tab.0.right" timestamp="1608471048958">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="172" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1608469030567" />
+    <state width="1345" height="172" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1608471048958" />
   </component>
 </project>

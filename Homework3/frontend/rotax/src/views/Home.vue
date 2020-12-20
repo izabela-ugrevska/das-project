@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <div id="header">
-
       <img src="../assets/logos/logo.png" style="padding-bottom: 3px; width: 270px; height: 100px;">
       <h5 style="color: darkcyan"><i>Пронајдете места пристапни со инвалидска количка</i></h5>
     </div>
@@ -48,7 +47,7 @@
       </div>
       <div class="wrapper">
         <div class="card" v-for="object in filteredList" :key="object.name">
-          <router-link :to="`/objects/searched/${object.name}`" class="link-to-object">{{object.name}}</router-link>
+          <router-link :to="`/objects/searched/${object.objectId}`" class="link-to-object">{{object.name}}</router-link>
         </div>
       </div>
     </div>
@@ -58,14 +57,25 @@
   </div>
 </template>
 <script>// @ is an alias to /src
-import objects from '@/data/objects'
+// import objects from '@/data/objects'
+import ObjectAxiosData from '../data/ObjectAxiosData'
 export default {
   name: 'Home',
   data () {
     return {
       search: '',
-      objList: objects
+      objList: []
     }
+  },
+  methods: {
+    refreshObjects () {
+      ObjectAxiosData.retrieveAllObjects().then((res) => {
+        this.objList = res.data
+      })
+    }
+  },
+  created () {
+    this.refreshObjects()
   },
   computed: {
     filteredList () {
