@@ -7,10 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import java.util.Optional;
+import java.util.Set;
 
-import static org.hamcrest.CoreMatchers.containsStringIgnoringCase;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
@@ -41,44 +39,42 @@ class ObjectRepositoryTest {
     @Test
     void findByNameContaining() {
         String name = "obj";
-        Optional<Object> objectOptional = objectRepository.findByNameIgnoreCaseContaining(name);
+        Set<Object> objects = objectRepository.findByNameIgnoreCaseContaining(name);
 
-        assertEquals(object, objectOptional.get());
-        assertThat(objectOptional.get().getName(), containsStringIgnoringCase(name));
+        assertEquals(objects.size(), 1);
     }
 
     @Test
     void findByAddressContaining() {
         String address = "city";
-        Optional<Object> objectOptional = objectRepository.findByAddressIgnoreCaseContaining(address);
+        Set<Object> objects = objectRepository.findByAddressIgnoreCaseContaining(address);
 
-        assertEquals(object, objectOptional.get());
-        assertThat(objectOptional.get().getAddress(), containsStringIgnoringCase(address));
+        assertEquals(objects.size(), 1);
     }
 
     @Test
     void findByCategoryName() {
-        String name = "category1";
-        Optional<Object> objectOptional = objectRepository.findByCategoryNameIgnoreCase(name);
+        Category category = Category.builder().categoryId(2L).build();
+        Set<Object> objects = objectRepository.findByCategory(category);
 
-        assertThat(objectOptional.get().getCategory().getName(), containsStringIgnoringCase(name));
+        assertEquals(objects.size(), 1);
     }
 
     @Test
     void findBySmokingType() {
-        Optional<Object> objectOptional = objectRepository.findBySmokingType(true);
-        Optional<Object> objectNull = objectRepository.findBySmokingType(false);
+        Set<Object> objects = objectRepository.findBySmokingType(true);
+        Set<Object> objectNull = objectRepository.findBySmokingType(false);
 
-        assertEquals(object, objectOptional.get());
+        assertEquals(objects.size(), 1);
         assertTrue(objectNull.isEmpty());
     }
 
     @Test
     void findByOutdoorSeating() {
-        Optional<Object> objectOptional = objectRepository.findByOutdoorSeating(true);
-        Optional<Object> objectNull = objectRepository.findByOutdoorSeating(false);
+        Set<Object> objects = objectRepository.findByOutdoorSeating(true);
+        Set<Object> objectNull = objectRepository.findByOutdoorSeating(false);
 
-        assertEquals(object, objectOptional.get());
+        assertEquals(objects.size(), 1);
         assertTrue(objectNull.isEmpty());
     }
 }

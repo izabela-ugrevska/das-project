@@ -1,16 +1,18 @@
 package mk.finki.das.rotax.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
@@ -30,7 +32,25 @@ public class User {
 
     private String lastName;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
-    private Set<Review> review;
+    private Set<Review> reviews;
+
+    public User(Long userId, String username, String password, String firstName, String lastName) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        reviews = new HashSet<>();
+    }
+
+    public User() {
+        reviews = new HashSet<>();
+    }
+
+    public void addReview(Review r){
+        reviews.add(r);
+    }
 
 }
