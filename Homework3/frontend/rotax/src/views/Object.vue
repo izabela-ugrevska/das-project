@@ -27,7 +27,7 @@
             <img src="../assets/Desktop/leaf.png" style="height: 100px;">
             <h6>има надворешен дел</h6>
           </b-col>
-          <b-col v-show="obj.cuisine!=null"> <br> <br>
+          <b-col v-show="obj.category=='restaurant' && obj.cuisine!=null"> <br> <br>
             <img src="../assets/Desktop/utilities.png" style="height: 100px">
             <h6>Кујна: {{obj.cuisine}}</h6>
           </b-col>
