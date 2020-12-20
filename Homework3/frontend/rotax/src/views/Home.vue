@@ -1,11 +1,10 @@
 <template>
   <div class="home">
     <div id="header">
-
       <img src="../assets/logos/logo.png" style="padding-bottom: 3px; width: 270px; height: 100px;">
       <h5 style="color: darkcyan"><i>Пронајдете места пристапни со инвалидска количка</i></h5>
     </div>
-    <div id="container">
+    <div id="container1">
       <b-container class="bv-example-row">
         <b-row style="align-content: center">
           <div class="category">
@@ -48,24 +47,55 @@
       </div>
       <div class="wrapper">
         <div class="card" v-for="object in filteredList" :key="object.name">
-          <router-link :to="`/objects/searched/${object.name}`" class="link-to-object">{{object.name}}</router-link>
+          <router-link :to="`/objects/searched/${object.objectId}`" class="link-to-object">{{object.name}}</router-link>
         </div>
       </div>
+    </div>
+    <div class="container">
+      <div class="jumbotron">
+        <h3>{{content}}</h3>
+      </div>
+
     </div>
     <div id="footer">
       <h5 style="padding-top: 90px"><i>Инклузивноста е право, а не привилегија!</i></h5>
     </div>
   </div>
 </template>
-<script>// @ is an alias to /src
-import objects from '@/data/objects'
+<script>
+import ObjectAxiosData from '../data/ObjectAxiosData'
+import UserService from '../services/user.service'
 export default {
   name: 'Home',
   data () {
     return {
       search: '',
-      objList: objects
+      objList: [],
+      content: ''
     }
+  },
+  mounted () {
+    UserService.getPublicContent().then(
+      response => {
+        this.content = response.data
+      },
+      error => {
+        this.content =
+          (error.response && error.response.data) ||
+          error.message ||
+          error.toString()
+      }
+    )
+  },
+  methods: {
+    refreshObjects () {
+      ObjectAxiosData.retrieveAllObjects().then((res) => {
+        this.objList = res.data
+      })
+    }
+  },
+  created () {
+    this.refreshObjects()
   },
   computed: {
     filteredList () {
@@ -86,7 +116,7 @@ export default {
     background: lightgray;
     height: 120px;
   }
-  #container{
+  #container1{
     position: relative;
   }
   .home{

@@ -5,7 +5,7 @@
       <h6 style="..."><i>Кликнете објектот за кој сте заинтересирани, и дознајте повеќе информации!</i></h6>
     </div>
     <div id="container">
-      <b-container class="tableOfOthers">
+      <b-container class="tableOfOthers" style="padding-top: 160px">
         <div v-for="object in others" :key="object.name" class="others">
           <template>
             <router-link :to="`/objects/others/${object.objectId}`">{{ object.name }}</router-link>
@@ -39,12 +39,6 @@ export default {
   }
 }
 
-// var filteredOther = []
-// for (let i = 0; i < other.length; i++) {
-//   if (other[i].category === 'other') {
-//     filteredOther.push(other[i])
-//   }
-// }
 </script>
 
 <style>

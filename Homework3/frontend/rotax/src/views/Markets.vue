@@ -5,7 +5,7 @@
       <h6 style="..."><i>Кликнете маркетот за кој сте заинтересирани, и дознајте повеќе информации!</i></h6>
     </div>
     <div id="container">
-      <b-container class="tableOfMarkets">
+      <b-container class="tableOfMarkets" style="padding-top: 170px">
         <div v-for="object in markets" :key="object.name" class="market">
           <template>
             <router-link :to="`/objects/markets/${object.objectId}`">{{ object.name }}</router-link>
@@ -39,12 +39,6 @@ export default {
   }
 }
 
-// var filteredMarkets = []
-// for (let i = 0; i < markets.length; i++) {
-//   if (markets[i].category === 'market') {
-//     filteredMarkets.push(markets[i])
-//   }
-// }
 </script>
 
 <style>
