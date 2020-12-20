@@ -44,6 +44,11 @@
         </b-row>
       </b-container>
     </div>
+    <b-container>
+      <b-form-rating v-model="rate_1" v-on:change="average"></b-form-rating>
+      <code>Оцена: {{rate_1}}</code> <br>
+      <code>Просечна оцена: {{averageRate}} / 5</code> <br>
+    </b-container>
     <div class="reviews">
       <div class="add-review">
         <input type="text" id="addReview"><input type="button" value="Add">
@@ -65,14 +70,31 @@ import ObjectAxiosData from '../data/ObjectAxiosData'
 export default {
   data () {
     return {
-      obj: {}
+      obj: {},
+      rate_1: null,
+      total: 0,
+      counter: 0,
+      averageRate: null,
+      user: JSON.parse(localStorage.getItem('user'))
     }
+  },
+  mounted () {
+    const prosek = this.average()
+    this.$set(this.obj, 'averageRating', prosek) // so ova se dodava nov property na object
+    console.log(this.obj.averageRating)
   },
   methods: {
     refreshObject () {
       ObjectAxiosData.retrieveObjectById(this.id).then((res) => {
         this.obj = res.data
       })
+    },
+    average: function () {
+      this.counter++
+      var rating = this.rate_1
+      this.total += rating
+      this.averageRate = (this.total / this.counter).toFixed(2)
+      return this.averageRate
     }
   },
   created () {
@@ -106,7 +128,7 @@ export default {
 }
 #addReview{
   length: 200px;
-  width: 400px;
+  width: 600px;
 }
 #footer{
   background: lightgray;

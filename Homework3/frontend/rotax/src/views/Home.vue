@@ -51,12 +51,6 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="jumbotron">
-        <h3>{{content}}</h3>
-      </div>
-
-    </div>
     <div id="footer">
       <h5 style="padding-top: 90px"><i>Инклузивноста е право, а не привилегија!</i></h5>
     </div>

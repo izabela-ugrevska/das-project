@@ -26,6 +26,10 @@ class ObjectAxiosData {
   retrieveOthers () {
     return axios.get(`${OBJECT_API_URL}/category/other`)
   }
+
+  createReview (objectId, userId) {
+    return axios.post(`${OBJECT_API_URL}/${objectId}/${userId}`)
+  }
 }
 
 export default new ObjectAxiosData()
