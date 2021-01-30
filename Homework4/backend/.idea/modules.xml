@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Domasna4.iml" filepath="$PROJECT_DIR$/Domasna4.iml" />
       <module fileurl="file://$PROJECT_DIR$/account-service/account-service.iml" filepath="$PROJECT_DIR$/account-service/account-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-service/eureka-service.iml" filepath="$PROJECT_DIR$/eureka-service/eureka-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/object-catalog/object-catalog.iml" filepath="$PROJECT_DIR$/object-catalog/object-catalog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rotax-microservices.iml" filepath="$PROJECT_DIR$/rotax-microservices.iml" />
     </modules>
   </component>
 </project>

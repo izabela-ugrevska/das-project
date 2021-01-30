@@ -14,5 +14,6 @@
     <modules>
         <module>object-catalog</module>
         <module>account-service</module>
+        <module>eureka-service</module>
     </modules>
 </project>
