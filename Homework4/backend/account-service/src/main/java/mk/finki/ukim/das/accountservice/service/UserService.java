@@ -2,6 +2,7 @@ package mk.finki.ukim.das.accountservice.service;
 
 import mk.finki.ukim.das.accountservice.model.User;
 
+import java.util.Optional;
 import java.util.Set;
 
 public interface UserService {
@@ -13,5 +14,7 @@ public interface UserService {
     User saveUser(User user);
 
     void deleteById(Long id);
+
+    Long getId(String username);
 
 }

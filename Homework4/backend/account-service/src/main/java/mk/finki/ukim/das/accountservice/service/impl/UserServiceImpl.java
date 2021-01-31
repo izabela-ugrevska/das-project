@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -42,6 +43,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public void deleteById(Long id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public Long getId(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
+        if (!user.isPresent()){
+            throw new UsernameNotFoundException("User Not Found with username: " + username);
+        }
+        return user.get().getUserId();
     }
 
     @Override

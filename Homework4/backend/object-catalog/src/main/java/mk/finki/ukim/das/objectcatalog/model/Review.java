@@ -21,10 +21,7 @@ public class Review {
     @Column(name = "review_id")
     private Long reviewId;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    private Long userId;
 
     @JsonIgnore
     @ManyToOne

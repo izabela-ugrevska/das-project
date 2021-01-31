@@ -1,7 +1,7 @@
 package mk.finki.ukim.das.accountservice.config;
 
 import io.jsonwebtoken.*;
-import mk.finki.das.rotax.service.impl.UserDetailsImpl;
+import mk.finki.ukim.das.accountservice.service.impl.UserDetailsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

@@ -5,20 +5,25 @@ import mk.finki.ukim.das.objectcatalog.model.Review;
 import mk.finki.ukim.das.objectcatalog.service.ObjectService;
 import mk.finki.ukim.das.objectcatalog.service.ReviewService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Set;
 
-@CrossOrigin(origins = "https://rotax-app.herokuapp.com/")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/objects")
 public class ObjectController {
+
+    private final RestTemplate restTemplate;
 
     private final ObjectService objectService;
 
     private final ReviewService reviewService;
 
-    public ObjectController(ObjectService objectService, ReviewService reviewService) {
+    public ObjectController(RestTemplate restTemplate, ObjectService objectService, ReviewService reviewService) {
+        this.restTemplate = restTemplate;
         this.objectService = objectService;
         this.reviewService = reviewService;
     }
@@ -44,7 +49,10 @@ public class ObjectController {
     @PostMapping("/{objectId}/{username}")
     @ResponseStatus(HttpStatus.CREATED)
     public Review createReview(@PathVariable Long objectId, @PathVariable String username, @RequestBody Review review){
-        return reviewService.saveReview(review, username, objectId);
+
+        Long userId = restTemplate.getForObject("http://localhost:8082/users/" + username, Long.class);
+
+        return reviewService.saveReview(review, userId, objectId);
     }
 
 }

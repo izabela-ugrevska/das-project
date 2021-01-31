@@ -1,6 +1,6 @@
 package mk.finki.ukim.das.accountservice.config;
 
-import mk.finki.das.rotax.service.impl.UserServiceImpl;
+import mk.finki.ukim.das.accountservice.service.impl.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

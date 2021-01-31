@@ -6,7 +6,7 @@ public interface ReviewService {
 
     Review findById(Long id);
 
-    Review saveReview(Review review, String username, Long objectId);
+    Review saveReview(Review review, Long userId, Long objectId);
 
     void deleteById(Long id);
 
