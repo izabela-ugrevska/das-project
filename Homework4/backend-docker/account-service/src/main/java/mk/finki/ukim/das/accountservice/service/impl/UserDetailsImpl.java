@@ -37,6 +37,7 @@ public class UserDetailsImpl implements UserDetails {
         this.authorities = authorities;
     }
 
+    // returns UserDetails for the given User
     public static UserDetailsImpl build(User user) {
 
         return new UserDetailsImpl(

@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.userRepository = userRepository;
     }
 
+    // returns all users in the database
     @Override
     public Set<User> findAll() {
         Set<User> users = new HashSet<>();
@@ -29,22 +30,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return users;
     }
 
-    @Override
-    public User findById(Long id) {
-        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User Not Found!!!"));
-    }
-
-    @Transactional
-    @Override
-    public User saveUser(User user) {
-        return userRepository.save(user);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        userRepository.deleteById(id);
-    }
-
+    // returns the ID of the user with the given username
     @Override
     public Long getId(String username) {
         Optional<User> user = userRepository.findByUsername(username);
@@ -54,6 +40,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return user.get().getUserId();
     }
 
+    // returns UserDetails for the given user by his username, if it doesn't exists throws Exception
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

@@ -35,6 +35,8 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
+    // function that responds to POST requests for signing in,
+    // returns ResponseEntity.OK (code 200) if the user has an account
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -53,14 +55,20 @@ public class AuthController {
                 null));
     }
 
+    // function that responds to POST requests for signing up,
+    // returns ResponseEntity.BAD_REQUEST (code 400) if the request body is invalid
+    // and ResponseEntity.OK (code 200) if the sign up was successful
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+
+        // checks if user exists
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
                     .body(new MessageResponse("Error: Username is already taken!"));
         }
 
+        // checks id email exists in database
         if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             return ResponseEntity
                     .badRequest()

@@ -6,22 +6,19 @@ import java.util.Set;
 
 public interface ObjectService {
 
+    // returns a Set of all objects in the database
     Set<Object> findAll();
 
+    // returns the object with the given ID
     Object findById(Long id);
 
+    // saves the given object, returns the saved object
     Object saveObject(Object object);
 
+    // deletes the object with the given ID
     void deleteById(Long id);
 
-    Set<Object> findByName(String name);
-
-    Set<Object> findByCity(String city);
-
+    // returns a Set of Objects with the given category name
     Set<Object> findByCategoryName(String name);
-
-    Set<Object> findByOutdoorSeating(Boolean outdoorSeating);
-
-    Set<Object> findBySmokingType(Boolean smokingType);
 
 }

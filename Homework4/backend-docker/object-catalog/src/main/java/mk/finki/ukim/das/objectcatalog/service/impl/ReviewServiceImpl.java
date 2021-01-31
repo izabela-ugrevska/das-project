@@ -19,11 +19,13 @@ public class ReviewServiceImpl implements ReviewService {
         this.reviewRepository = reviewRepository;
     }
 
+    // returns the review with the given ID
     @Override
     public Review findById(Long id) {
         return reviewRepository.findById(id).orElseThrow(() -> new RuntimeException("Review Not Found!!!"));
     }
 
+    // saves the review, returns the saved review
     @Override
     public Review saveReview(Review review, Long userId, Long objectId) {
         if(userId == null){
@@ -38,8 +40,10 @@ public class ReviewServiceImpl implements ReviewService {
         return reviewSaved;
     }
 
+    // deletes the review with the given id
     @Override
     public void deleteById(Long id) {
         reviewRepository.deleteById(id);
     }
+
 }

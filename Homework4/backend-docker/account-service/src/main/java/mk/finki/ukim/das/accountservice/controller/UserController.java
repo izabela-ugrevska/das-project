@@ -18,12 +18,14 @@ public class UserController {
         this.userService = userService;
     }
 
+    // responds to GET request for users, returns a Set of all users
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public Set<User> getAllObjects(){
         return userService.findAll();
     }
 
+    // responds to GET request for one user by username, returns the user's ID
     @GetMapping("/{username}")
     @ResponseStatus(HttpStatus.OK)
     public Long getUserById(@PathVariable String username){

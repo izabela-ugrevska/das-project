@@ -2,6 +2,7 @@ package mk.finki.ukim.das.accountservice.request;
 
 import javax.validation.constraints.NotBlank;
 
+// class for login requests
 public class LoginRequest {
     @NotBlank
     private String username;

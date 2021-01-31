@@ -20,6 +20,7 @@ public class JwtUtils {
     @Value("${mk.finki.das.rotax.jwtExpirationMs}")
     private int jwtExpirationMs;
 
+    // function for generating a token on authentication request, returns a token
     public String generateJwtToken(Authentication authentication) {
 
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
@@ -32,10 +33,12 @@ public class JwtUtils {
                 .compact();
     }
 
+    // returns username for the given token
     public String getUserNameFromJwtToken(String token) {
         return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
     }
 
+    // returns if the token is valid
     public boolean validateJwtToken(String authToken) {
         try {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);

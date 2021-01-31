@@ -3,6 +3,7 @@ package mk.finki.ukim.das.accountservice.request;
 import javax.validation.constraints.*;
 import java.util.Set;
 
+// class for sign up data
 public class SignupRequest {
 
     @NotBlank

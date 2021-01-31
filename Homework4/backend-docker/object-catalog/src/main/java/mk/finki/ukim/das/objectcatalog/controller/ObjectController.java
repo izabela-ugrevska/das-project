@@ -5,7 +5,6 @@ import mk.finki.ukim.das.objectcatalog.model.Review;
 import mk.finki.ukim.das.objectcatalog.service.ObjectService;
 import mk.finki.ukim.das.objectcatalog.service.ReviewService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -28,24 +27,28 @@ public class ObjectController {
         this.reviewService = reviewService;
     }
 
+    // responds to GET request for objects, returns a Set od all objects with the status 200
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public Set<Object> getAllObjects(){
         return objectService.findAll();
     }
 
+    // responds to GET request for an objects with a given ID, returns the object if it exists with the status 200
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Object getObjectById(@PathVariable Long id){
         return objectService.findById(id);
     }
 
+    // responds to GET request for objects with a given category, returns a Set of objects with the status 200
     @GetMapping("/category/{categoryName}")
     @ResponseStatus(HttpStatus.OK)
     public Set<Object> getObjectsByCategoryName(@PathVariable String categoryName){
         return objectService.findByCategoryName(categoryName);
     }
 
+    // responds to POST request for creating a Review, returns the Review with the status 201
     @PostMapping("/{objectId}/{username}")
     @ResponseStatus(HttpStatus.CREATED)
     public Review createReview(@PathVariable Long objectId, @PathVariable String username, @RequestBody Review review){

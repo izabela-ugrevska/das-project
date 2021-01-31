@@ -7,14 +7,10 @@ import java.util.Set;
 
 public interface UserService {
 
+    // returns all users in database
     Set<User> findAll();
 
-    User findById(Long id);
-
-    User saveUser(User user);
-
-    void deleteById(Long id);
-
+    // returns the ID of the user with the given username
     Long getId(String username);
 
 }

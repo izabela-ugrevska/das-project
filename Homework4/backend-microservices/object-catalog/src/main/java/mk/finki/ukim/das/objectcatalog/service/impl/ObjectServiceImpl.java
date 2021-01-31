@@ -22,6 +22,7 @@ public class ObjectServiceImpl implements ObjectService {
         this.categoryRepository = categoryRepository;
     }
 
+    // returns a Set of all objects in the database
     @Override
     public Set<Object> findAll() {
         Set<Object> objects = new HashSet<>();
@@ -29,46 +30,30 @@ public class ObjectServiceImpl implements ObjectService {
         return objects;
     }
 
+    // returns the object with the given ID
     @Override
     public Object findById(Long id) {
         return objectRepository.findById(id).orElseThrow(() -> new RuntimeException("Object Not Found!!!"));
     }
 
+    // saves the given object, returns the saved object
     @Override
     public Object saveObject(Object object) {
         return objectRepository.save(object);
     }
 
+    // deletes the object with the given ID
     @Override
     public void deleteById(Long id) {
         objectRepository.deleteById(id);
     }
 
-    @Override
-    public Set<Object> findByName(String name) {
-        return objectRepository.findByNameIgnoreCaseContaining(name);
-    }
-
-    @Override
-    public Set<Object> findByCity(String city) {
-        return objectRepository.findByAddressIgnoreCaseContaining(city);
-    }
-
+    // returns a Set of Objects with the given category name
     @Override
     public Set<Object> findByCategoryName(String name) {
         Category category = categoryRepository.findByNameIgnoreCase(name)
                 .orElseThrow(() -> new RuntimeException("Category Not Found!!!"));
         return objectRepository.findByCategory(category);
-    }
-
-    @Override
-    public Set<Object> findByOutdoorSeating(Boolean outdoorSeating) {
-        return objectRepository.findByOutdoorSeating(outdoorSeating);
-    }
-
-    @Override
-    public Set<Object> findBySmokingType(Boolean smokingType) {
-        return objectRepository.findBySmokingType(smokingType);
     }
 
 }

@@ -17,6 +17,7 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
+    // returns a Set of all categories
     @Override
     public Set<Category> findAll() {
         Set<Category> categories = new HashSet<>();
@@ -24,22 +25,26 @@ public class CategoryServiceImpl implements CategoryService {
         return categories;
     }
 
+    // returns the category with the given ID
     @Override
     public Category findById(Long id) {
         return categoryRepository.findById(id).orElseThrow(() -> new RuntimeException("Category Not Found!!!"));
     }
 
+    // returns the category with the given name
     @Override
     public Category findByName(String name) {
         return categoryRepository.findByNameIgnoreCase(name)
                 .orElseThrow(() -> new RuntimeException("Category Not Found!!!"));
     }
 
+    // saves the given category to the database, returns the saved category
     @Override
     public Category saveCategory(Category category) {
         return categoryRepository.save(category);
     }
 
+    // deletes the category with the given ID
     @Override
     public void deleteById(Long id) {
         categoryRepository.deleteById(id);

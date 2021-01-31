@@ -31,11 +31,14 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+        // if there are no categories in the database, call readCsvFile() function
         if(categoryRepository.findAll().size() == 0){
             readCsvFile();
         }
     }
 
+    // try to read csv file and save the objects to database, if unsuccessful throw Exception
     private void readCsvFile(){
         // createCategories
         Category cafe = Category.builder().name("Cafe").build();
@@ -63,6 +66,8 @@ public class DataLoader implements CommandLineRunner {
             // read one record at a time
             String[] record;
             while ((record = csvReader.readNext()) != null) {
+
+                // create one Object for every line in the file
                 Object object = new Object();
                 object.setLongitude(record[1]);
                 object.setLatitude(record[2]);
