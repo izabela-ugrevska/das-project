@@ -1,0 +1,25 @@
+version: '3'
+services:
+  eureka-service:
+    image: das.finki.ukim.mk/rotax-microservices-eureka-service:0.0.1-SNAPSHOT
+    ports:
+      - 8761:8761
+  account-service:
+    image: das.finki.ukim.mk/rotax-microservices-account-service:0.0.1-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://eureka-service:8761/eureka/
+    depends_on:
+      - eureka-service
+    ports:
+      - 8082:8082
+  object-catalog:
+    image: das.finki.ukim.mk/rotax-microservices-object-catalog:0.0.1-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://eureka-service:8761/eureka/
+    depends_on:
+      - eureka-service
+      - account-service
+    ports:
+      - 8081:8081
