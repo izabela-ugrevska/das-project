@@ -36,7 +36,14 @@
               <GmapMap
                 :center="{lat: parseFloat(obj.latitude), lng: parseFloat(obj.longitude)}"
                 :zoom="18"
-                style="width:900px; height:260px; margin: 32px auto;"></GmapMap>
+                style="width:900px; height:260px; margin: 32px auto;">
+                <GmapMarker
+                  :key="index"
+                  :position="{lat: parseFloat(obj.latitude), lng: parseFloat(obj.longitude)}"
+                  :clickable="true"
+                  :draggable="true"
+                />
+              </GmapMap>
             </div>
           </b-col>
         </b-row>
